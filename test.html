@@ -1,0 +1,33 @@
+<script>
+function displayTableFromArray(productList) {
+let str = "<table>"
+    + "<caption>Display all product: </caption>"
+    + "<tr>"
+        + "<th width='30%'>&ensp;Product name</th>"
+        + "<th>&ensp;</th>"
+        + "<th>&ensp;</th>"
+        + "</tr>"
+    for (let i = 0; i < productList.length; i++) {
+    // str += "<tr>";
+        // str += "<td> "+productList[i]+"</td>";
+        // str += "<td><input type='button' value='edit' onclick='" + editProduct(i) + "'></td>"
+        // str += "<td><input type='button' value='Delete' onclick='" + editProduct(i, productList) + "'></td>"
+        // str += "</tr>";
+    str+= `<tr><td>${productList[i]}</td>
+        <td><button onclick="editProduct(${i})">Edit</button></td>
+        <td><button onclick="editProduct(${i})">Delete</button><td></tr>`;
+    }
+    str+= "</table>";
+document.getElementById("displayTable").innerHTML = str;
+}
+function addProduct(product, productList) {
+let Product = document.getElementById("newpro").value;
+productList.push(productList);
+displayTableFromArray(productList);
+}
+function editProduct(index) {
+productList[index] = prompt("Input new name of product");
+displayTableFromArray(productList);
+}
+displayTableFromArray(productList);
+</script>

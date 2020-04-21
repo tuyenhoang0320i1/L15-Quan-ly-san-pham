@@ -1,0 +1,13 @@
+
+table{
+    width: 100%;
+    border: 1px solid black;
+}
+table caption {
+    font-size: x-large;
+    font-weight: bold;
+    padding: 10px;
+}
+table tr th,td {
+    border: 1px solid;
+}
