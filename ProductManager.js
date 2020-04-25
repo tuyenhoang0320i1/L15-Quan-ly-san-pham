@@ -8,29 +8,32 @@ function displayTableFromArray(productList) {
     + "<th>&ensp;</th>"
     + "</tr>";
     for (let i = 0; i < productList.length; i++) {
-        str += `<tr><td>${productList[i]}</td>
-        <td><button onclick="editProduct(${i}">Edit</button> </td>
-        <td><button onclick="editProduct(${i}">Delete</button> </td></tr>`;
+        str += `<tr>
+                <td>${productList[i]}</td>
+                <td><button id="edit" onclick="editProduct(${i})">Edit</button></td>
+                <td><button id="delete" onclick="deleteProduct(${i})">Delete</button></td>
+                </tr>`;
     }
-    str += "</table>";
-    document.getElementById('displayTable').innerHTML = str;
+    str += "</table>"
+    document.getElementById("displayTable").innerHTML = str;
 }
 
 function addProduct() {
-    let product = document.getElementById('newProduct').value;
+    let product = document.getElementById("newProduct").value;
     if (product !== '') {
         productList.push(product);
-        displayTableFromArray(productList);
     }
-}
-function editProduct(index) {
-    productList[index] = prompt("Input new name of product");
     displayTableFromArray(productList);
 }
-function deleteProduct(index) {
-    productList.splice(index, 1);
-    displayTableFromArray(productList);
 
+function editProduct(index) {
+    productList[index] = prompt("Content edited");
+    displayTableFromArray(productList);
 }
+
+function deleteProduct(index) {
+    productList.splice(index,1);
+    displayTableFromArray(productList);
+}
+
 displayTableFromArray(productList);
-deleteProduct();
